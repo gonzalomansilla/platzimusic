@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    img.logo(src='./assets/logo.png')
+    img.logo(:src='urlLogo' alt="Logo")
     h1.title PlatziMusic
 
     select.countrys(v-model="selectedCountry")
@@ -29,7 +29,8 @@ export default {
         { name: "México", value: "mexico" }
       ],
       selectedCountry: "argentina",
-      loading: true
+      loading: true,
+      urlLogo: "./dist/logo.png"
     };
   },
 
