@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    img.logo(src='./../dist/logo.png')
+    img.logo(src='../dist/logo.png')
     h1.title PlatziMusic
 
     select.countrys(v-model="selectedCountry")
