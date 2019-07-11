@@ -1,13 +1,13 @@
 <template lang="pug">
   #app
-    img.logo(src='./assets/logo.png' alt="Logo")
+    img.logo(src='./../dist/logo.png' alt="Logo")
     h1.title PlatziMusic
 
     a.api(href="https://www.last.fm/es/home" target="_blank")
-      img(src="./assets/lastfm-logo.jpg" )
+      img(src="./../dist/lastfm-logo.jpg" )
 
     select.countrys(v-model="selectedCountry")
-      option(v-for="country in countries" v-bind:value="country.value") {{ country.name }}
+      option(v-for="country in countries" :value="country.value") {{ country.name }}
 
     spinner(v-show="loading")
 
@@ -16,12 +16,10 @@
 </template>
 
 <script>
-// Hay que indicarle a la Vista(View) los componentes que tendra y utilizara
 import Artist from "./components/Artist";
 import Spinner from "./components/Spinner";
 import getArtists from "./api";
 
-// View
 export default {
   name: "app",
   data() {
@@ -40,10 +38,9 @@ export default {
 
   methods: {
     refreshArtist() {
-      // El spinner se ejecutara cuando inicia y se cambia de pais
       this.loading = true;
-      // De esta forma, los artistas no se ven mientras carga
       this.artists = [];
+
       const _this = this;
       getArtists(this.selectedCountry).then(function(artistsApi) {
         _this.artists = artistsApi;
@@ -57,16 +54,10 @@ export default {
     spinner: Spinner
   },
 
-  // Una vez "Montado"(ciclo de vida de un componente) el elemento, se hace un request a la API last.fm para obtener los datos y mostrar la respuesta en la pantalla
   mounted() {
-    // Se jecuta codigo despues de "crear" el componente, es decir en la "montura" del mismo en el DOM... EN ESTE caso, se quiere obtener los artists
     this.refreshArtist();
   },
 
-  /*
-    Este objeto, sirve para 'escuchar' cambios sobre algun "atributo".
-    En este caso, cada vez seleccionado un pais, se debe ejecutar un funcion que haga un "request"
-  */
   watch: {
     selectedCountry() {
       this.refreshArtist();

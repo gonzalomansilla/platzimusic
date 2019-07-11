@@ -3,7 +3,6 @@
       img.artist__img(:src="artist.image[2]['#text']")
       h2.artist__name: a(:href="artist.url" target="_blank") {{ artist.name }}
 </template>
-//  Cada componente reutilizado debe tener una key unica (CSS). En este caso, lastFm ya tiene un campo con un id
 
 <script>
 export default {
@@ -12,8 +11,6 @@ export default {
 };
 </script>
 
-// scoped: Asigna un data-atribiuts(id) a cada instancia de un componente
-// Es necesario para que los estilos no se "sobreescriban", de esta forma se "modula" el css. Esto tambien ayuda a reducir el "alcance" del css y que no se pisen los estilos de los distintos componentes
 <style lang="scss" scoped>
 .artist {
   margin: 0;
