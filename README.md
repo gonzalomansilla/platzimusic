@@ -1,4 +1,4 @@
-# platzimusic
+# PlatziMusic
 
 > Proyecto final del curso Introduccion a Vue.js de Platzi
 

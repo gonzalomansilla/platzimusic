@@ -1,13 +1,18 @@
 <template lang="pug">
   #app
-    img.logo(src='https://newtongrav.github.io/platzimusic/dist/logo.png' alt="Logo")
+    img.logo(src='./assets/logo.png' alt="Logo")
     h1.title PlatziMusic
+
+    a.api(href="https://www.last.fm/es/home" target="_blank")
+      img(src="./assets/lastfm-logo.jpg" )
 
     select.countrys(v-model="selectedCountry")
       option(v-for="country in countries" v-bind:value="country.value") {{ country.name }}
+
     spinner(v-show="loading")
+
     ul.artists
-      artist(v-for="artist in artists" v-bind:artist="artist" v-bind:key="artist.mbid")
+      artist(v-for="artist in artists" :artist="artist" :key="artist.mbid")
 </template>
 
 <script>
@@ -98,6 +103,16 @@ li {
   margin: 0px auto;
 }
 
+.api {
+  text-align: center;
+  margin-bottom: 32px;
+  text-align: center;
+
+  & img {
+    width: 120px;
+  }
+}
+
 .title {
   text-align: center;
   color: #42b983;
@@ -111,7 +126,7 @@ li {
   justify-self: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 16px;
-  margin: 48px 0;
+  grid-gap: 32px;
+  margin: 48px 64px;
 }
 </style>
