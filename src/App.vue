@@ -11,6 +11,8 @@
 
     spinner(v-show="loading")
 
+    p.api-restriction Las imágenes no pueden ser visualizadas debido a <a href="https://getsatisfaction.com/lastfm/topics/api-announcement-dac8oefw5vrxq" target="_blank">restricciones</a> por parte de lastFm
+
     ul.artists
       artist(v-for="artist in artists" :artist="artist" :key="artist.mbid")
 </template>
@@ -111,6 +113,16 @@ li {
 
 .countrys {
   margin: 0 auto;
+}
+
+.api-restriction {
+  text-align: center;
+  font-size: 14px;
+  color: hsla(0, 0%, 30%, 0.6);
+  margin-bottom: -8px;
+  & a {
+    color: hsla(0, 0%, 30%, 0.8);
+  }
 }
 
 .artists {
