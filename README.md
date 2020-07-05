@@ -1,8 +1,6 @@
 # PlatziMusic
 
-> Proyecto final del curso Introduccion a Vue.js de Platzi
-
-[Preview](https://curso-vuejs.netlify.com/)
+Proyecto final del curso Introduccion a Vue.js de Platzi
 
 ## Build Setup
 
